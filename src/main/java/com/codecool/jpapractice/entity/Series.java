@@ -1,9 +1,6 @@
 package com.codecool.jpapractice.entity;
 
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
-import lombok.Singular;
+import lombok.*;
 
 import javax.persistence.*;
 import java.util.List;
@@ -12,6 +9,7 @@ import java.util.Set;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
+@Builder
 @Entity
 public class Series {
 
@@ -22,6 +20,7 @@ public class Series {
     private String title;
 
     @OneToMany
+    @Singular
     private List<Season> seasons;
 
     @ElementCollection

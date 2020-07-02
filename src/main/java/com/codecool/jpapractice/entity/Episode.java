@@ -1,14 +1,13 @@
 package com.codecool.jpapractice.entity;
 
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 import javax.persistence.*;
 
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
+@Builder
 @Entity
 public class Episode {
 
@@ -23,8 +22,13 @@ public class Episode {
     @Transient
     private Float lengthInHours;
 
-    @ManyToOne
+    @ManyToOne(cascade = CascadeType.PERSIST)
+    @EqualsAndHashCode.Exclude
+    @ToString.Exclude
     private Season season;
 
+    public void calculateLengthInHours() {
+        lengthInHours = (float) lengthInMinutes / 60;
+    }
 
 }
