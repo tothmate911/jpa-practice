@@ -21,11 +21,11 @@ public class Season {
 
     private LocalDate releaseDate;
 
-    @OneToMany
+    @OneToMany(cascade = CascadeType.PERSIST)
     @Singular
     private List<Episode> episodes;
 
-    @ManyToOne(cascade = {CascadeType.PERSIST, CascadeType.REMOVE})
+    @ManyToOne
     @EqualsAndHashCode.Exclude
     @ToString.Exclude
     private Series series;

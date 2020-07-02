@@ -22,7 +22,7 @@ public class Episode {
     @Transient
     private Float lengthInHours;
 
-    @ManyToOne(cascade = CascadeType.PERSIST)
+    @ManyToOne
     @EqualsAndHashCode.Exclude
     @ToString.Exclude
     private Season season;

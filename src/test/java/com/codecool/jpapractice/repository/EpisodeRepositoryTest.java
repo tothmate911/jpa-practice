@@ -1,6 +1,6 @@
-package com.codecool.jpapractice.entity;
+package com.codecool.jpapractice.repository;
 
-import com.codecool.jpapractice.repository.EpisodeRepository;
+import com.codecool.jpapractice.entity.Episode;
 import org.junit.jupiter.api.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,13 +11,12 @@ import org.springframework.test.context.junit4.SpringRunner;
 import javax.persistence.EntityManager;
 import java.util.List;
 
-import static org.junit.jupiter.api.Assertions.*;
 import static org.assertj.core.api.Assertions.assertThat;
 
 @RunWith(SpringRunner.class)
 @DataJpaTest
 @ActiveProfiles("test")
-class EpisodeTest {
+class EpisodeRepositoryTest {
 
     @Autowired
     private EpisodeRepository episodeRepository;
@@ -51,7 +50,6 @@ class EpisodeTest {
 
         List<Episode> episodeList = episodeRepository.findAll();
         assertThat(episodeList).allMatch(episode1 -> episode1.getLengthInHours() == 0F);
-
     }
 
 }

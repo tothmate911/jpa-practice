@@ -5,6 +5,7 @@ import com.codecool.jpapractice.entity.Genre;
 import com.codecool.jpapractice.entity.Season;
 import com.codecool.jpapractice.entity.Series;
 import com.codecool.jpapractice.repository.EpisodeRepository;
+import com.codecool.jpapractice.repository.SeasonRepository;
 import com.codecool.jpapractice.repository.SeriesRepository;
 import org.assertj.core.util.Lists;
 import org.springframework.boot.CommandLineRunner;
@@ -20,10 +21,12 @@ public class JpaPracticeApplication {
 
     private SeriesRepository seriesRepository;
     private EpisodeRepository episodeRepository;
+    private SeasonRepository seasonRepository;
 
-    public JpaPracticeApplication(SeriesRepository seriesRepository, EpisodeRepository episodeRepository) {
+    public JpaPracticeApplication(SeriesRepository seriesRepository, EpisodeRepository episodeRepository, SeasonRepository seasonRepository) {
         this.seriesRepository = seriesRepository;
         this.episodeRepository = episodeRepository;
+        this.seasonRepository = seasonRepository;
     }
 
     public static void main(String[] args) {
@@ -40,26 +43,28 @@ public class JpaPracticeApplication {
                     .build();
             episode1.calculateLengthInHours();
 
-            episodeRepository.save(episode1);
+//            episodeRepository.saveAndFlush(episode1);
 
-//            Episode episode2 = Episode.builder()
-//                    .title("episode1")
-//                    .lengthInMinutes(180)
-//                    .build();
-//
-//            Episode episode3 = Episode.builder()
-//                    .title("episode1")
-//                    .lengthInMinutes(100)
-//                    .build();
-//
-//            Season season1 = Season.builder()
-//                    .releaseDate(LocalDate.of(1990, 10, 1))
-//                    .title("season1")
-//                    .episode(episode1)
-//                    .build();
-//
-//            episode1.setSeason(season1);
-//
+            Episode episode2 = Episode.builder()
+                    .title("episode1")
+                    .lengthInMinutes(180)
+                    .build();
+
+            Episode episode3 = Episode.builder()
+                    .title("episode1")
+                    .lengthInMinutes(100)
+                    .build();
+
+            Season season1 = Season.builder()
+                    .releaseDate(LocalDate.of(1990, 10, 1))
+                    .title("season1")
+                    .episode(episode1)
+                    .build();
+
+            episode1.setSeason(season1);
+
+            seasonRepository.save(season1);
+
 //            Season season2 = Season.builder()
 //                    .releaseDate(LocalDate.of(1990, 10, 1))
 //                    .title("season2")
