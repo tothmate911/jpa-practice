@@ -42,8 +42,6 @@ public class JpaPracticeApplication {
 
             episodeRepository.save(episode1);
 
-
-
 //            Episode episode2 = Episode.builder()
 //                    .title("episode1")
 //                    .lengthInMinutes(180)
