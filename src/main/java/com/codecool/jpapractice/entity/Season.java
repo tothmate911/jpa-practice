@@ -21,7 +21,7 @@ public class Season {
 
     private LocalDate releaseDate;
 
-    @OneToMany(mappedBy = "season", cascade = {CascadeType.PERSIST, CascadeType.MERGE})
+    @OneToMany(mappedBy = "season", cascade = CascadeType.PERSIST)
     @Singular
     private List<Episode> episodes;
 
