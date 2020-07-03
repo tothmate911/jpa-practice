@@ -19,7 +19,7 @@ public class Series {
 
     private String title;
 
-    @OneToMany(cascade = {CascadeType.PERSIST, CascadeType.REMOVE})
+    @OneToMany(cascade = CascadeType.PERSIST)
     @Singular
     private List<Season> seasons;
 

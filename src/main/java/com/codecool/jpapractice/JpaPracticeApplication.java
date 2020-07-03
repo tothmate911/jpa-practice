@@ -43,7 +43,7 @@ public class JpaPracticeApplication {
                     .build();
             episode1.calculateLengthInHours();
 
-//            episodeRepository.saveAndFlush(episode1);
+//            episodeRepository.save(episode1);
 
             Episode episode2 = Episode.builder()
                     .title("episode1")
